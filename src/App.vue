@@ -1,10 +1,15 @@
-<script setup lang="ts">
-  import {ref, reactive} from 'vue'
-  import { db } from './data/guitars.js'
+<script setup>
+  import {ref, onMounted} from 'vue'
+  import {db} from './data/guitars.js'
 
-  const state = reactive({
-    guitarras: db
-  })
+  const guitarras = ref(db);
+
+  
+
+  onMounted(() => {
+    guitarras.value = db;
+  }),
+
 
 </script>
 
